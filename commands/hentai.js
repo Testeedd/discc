@@ -7,7 +7,7 @@ module.exports.run = (bot, message, args, discord) => {
   let keywords = [
     "HENTAI_GIF",
     "hentai",
-    "hentai_irl",
+    "hentaiporn",
     "hentai_porn",
     "anime_porn",
     "hentaigif"
