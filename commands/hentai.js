@@ -7,7 +7,10 @@ module.exports.run = (bot, message, args, discord) => {
   let keywords = [
     "HENTAI_GIF",
     "hentai",
-    "hentai_irl"
+    "hentai_irl",
+    "hentai_porn",
+    "anime_porn",
+    "hentaigif"
   ]
   
   var result = keywords[Math.floor(Math.random()*keywords.length)]
