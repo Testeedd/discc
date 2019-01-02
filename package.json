@@ -1,0 +1,21 @@
+{
+  "name": "MyBot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cjs": "0.0.11",
+    "discord.js": "^11.4.2",
+    "file-system": "",
+    "loader.js": "^4.7.0",
+    "ms": "^2.1.1",
+    "nodejs": "0.0.0",
+    "random-puppy": "^1.1.0"
+  }
+}
