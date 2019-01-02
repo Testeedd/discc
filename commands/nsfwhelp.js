@@ -10,7 +10,8 @@ ass - жопа
 pussy - вагина
 fuck - секс
 gif - гифка
-cosplay - костплей поррно`)
+cosplay - костплей порно
+uniform -  униформа`)
   .setTimestamp()
   .setFooter("|LLIAJIYH-BOT| PROJECTS All rightes reserved.", "https://i.imgur.com/fBv7xWF.jpg")
 message.channel.send({embed}).then(msg => msg.delete(5000));
