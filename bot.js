@@ -50,4 +50,4 @@ let status = statuses[Math.floor(Math.random()*statuses.length)];
 client.user.setPresence({game: { name: status}, status: 'idle'});
 }, 3000);
 
-client.login(config.token);
+client.login(process.env.token);
