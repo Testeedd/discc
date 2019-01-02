@@ -11,7 +11,8 @@ say - сказать что-то
 user-info - инфо о человеке
 report - пожаловаться на пользователя
 allservers - кол-во серверов использющих меня
-nsfwhelp - помощь по NSFW пикчах`)
+nsfwhelp - помощь по NSFW пикчах
+dice - игральная кость`)
   .setTimestamp()
   .setFooter("|LLIAJIYH-BOT| PROJECTS All rightes reserved.", "https://i.imgur.com/fBv7xWF.jpg")
 message.channel.send({embed}).then(msg => msg.delete(20000));
