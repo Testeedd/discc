@@ -9,7 +9,8 @@ hentai - хентай
 ass - жопа
 pussy - вагина
 fuck - секс
-gif - гифка`)
+gif - гифка
+cosplay - костплей поррно`)
   .setTimestamp()
   .setFooter("|LLIAJIYH-BOT| PROJECTS All rightes reserved.", "https://i.imgur.com/fBv7xWF.jpg")
 message.channel.send({embed}).then(msg => msg.delete(5000));
