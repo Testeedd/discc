@@ -15,6 +15,6 @@ nsfwhelp - помощь по NSFW пикчах
 dice - игральная кость`)
   .setTimestamp()
   .setFooter("|LLIAJIYH-BOT| PROJECTS All rightes reserved.", "https://i.imgur.com/fBv7xWF.jpg")
-message.channel.send({embed}).then(msg => msg.delete(20000));
+message.channel.send({embed}).then(msg => msg.delete(60000));
 message.delete().catch(_O_o=>{});
 }
