@@ -1,33 +1,21 @@
-const Discord = require("discord.js");
-const errors = require("../utils/errors.js");
+const Discord = require('discord.js');
+exports.run = (client, message, args) => {
+  let reason = args.slice(1).join(' ');
+  let user = message.mentions.users.first();
+  let modlog = client.channels.find('name', 'mod-log');
+  if (!modlog) return message.reply('I cannot find a mod-log channel');
+  if (reason.length < 1) return message.reply('You must supply a reason for the ban.');
+  if (message.mentions.users.size < 1) return message.reply('You must mention someone to ban them.').catch(console.error);
 
-module.exports.run = async (bot, message, args) => {
-    message.delete();
-    if(!message.member.hasPermission("BAN_MEMBERS")) return errors.noPerms(message, "BAN_MEMBERS");
-    if(args[0] == "help"){
-      message.reply("Usage: !ban <user> <reason>");
-      return;
-    }
-    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!bUser) return errors.cantfindUser(message.channel);
-    if(bUser.id === bot.user.id) return errors.botuser(message); 
-    let bReason = args.join(" ").slice(22);
-    if(!bReason) return errors.noReason(message.channel);
-    if(bUser.hasPermission("MANAGE_MESSAGES")) return errors.equalPerms(message, bUser, "MANAGE_MESSAGES");
+  if (!message.guild.member(user).bannable) return message.reply('I cannot ban that member');
+  message.guild.ban(user, 2);
 
-    let banEmbed = new Discord.RichEmbed()
-    .setDescription("~Ban~")
-    .setColor("#bc0000")
-    .addField("Banned User", `${bUser} with ID ${bUser.id}`)
-    .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
-    .addField("Banned In", message.channel)
-    .addField("Time", message.createdAt)
-    .addField("Reason", bReason);
-
-    let incidentchannel = message.guild.channels.find(`name`, "incidents");
-    if(!incidentchannel) return message.channel.send("Can't find incidents channel.");
-
-    message.guild.member(bUser).ban(bReason);
-    incidentchannel.send(banEmbed);
-    .catch ( error => message.channel.send(`**ERROR**: ${error.message}`))
-}
+  const embed = new Discord.RichEmbed()
+    .setColor(0x00AE86)
+    .setTimestamp()
+    .addField('Action:', 'Ban')
+    .addField('User:', `${user.username}#${user.discriminator} (${user.id})`)
+    .addField('Modrator:', `${message.author.username}#${message.author.discriminator}`)
+    .addField('Reason', reason);
+  return client.channels.get(modlog.id).sendEmbed(embed);
+};
