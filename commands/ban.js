@@ -29,4 +29,5 @@ module.exports.run = async (bot, message, args) => {
 
     message.guild.member(bUser).ban(bReason);
     incidentchannel.send(banEmbed);
+    .catch ( error => message.channel.send(`**ERROR**: ${error.message}`))
 }
