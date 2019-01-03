@@ -1,3 +1,5 @@
+const Discord = require('discord.js')
+
 exports.run = (client, message, args, tools) => {
 	
 if (isNaN(args[0])) return message.channel.send('**укажите кол-во сообщений**');
