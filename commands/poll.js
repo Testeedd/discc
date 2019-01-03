@@ -12,7 +12,7 @@ exports.run = async (client, message, args, level) => {
   .setColor("#4169E1")
   .setDescription(`${question}`)
   .setTimestamp()
-  .setFooter("|LLIAJIYH-BOT| PROJECTS.   Шpoll - голосование", "https://i.imgur.com/fBv7xWF.jpg")
+  .setFooter("|LLIAJIYH-BOT| PROJECTS.   ш!poll - голосование", "https://i.imgur.com/fBv7xWF.jpg")
 await message.channel.send(embed).then(embedMessage => {
     embedMessage.react('👍').then(r => {
       embedMessage.react('👎')
