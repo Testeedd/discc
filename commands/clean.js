@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const moment = require("moment");
 const errors = require("../utils/errors.js");
 
-module.exports.run = async (bot, message, args) => {
+exports.run = (client, message, args, level) => {
  if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
  if(!args[0]) return message.channel.send("укажите кол-во сообщений");
  message.channel.bulkDelete(args[0]).then(() => {
