@@ -1,21 +1,30 @@
-const Discord = require('discord.js');
-exports.run = (client, message, args) => {
-  let reason = args.slice(1).join(' ');
-  let user = message.mentions.users.first();
-  let modlog = client.channels.find('name', 'mod-log');
-  if (!modlog) return message.reply('I cannot find a mod-log channel');
-  if (reason.length < 1) return message.reply('You must supply a reason for the kick.');
-  if (message.mentions.users.size < 1) return message.reply('You must mention someone to kick them.').catch(console.error);
+const Discord = require("discord.js");
+const errors = require("../utils/errors.js");
 
-  if (!message.guild.member(user).kickable) return message.reply('I cannot kick that member');
-  message.guild.member(user).kick();
+module.exports.run = async (bot, message, args) => {
 
-  const embed = new Discord.RichEmbed()
-    .setColor(0x00AE86)
-    .setTimestamp()
-    .addField('Action:', 'kick')
-    .addField('User:', `${user.username}#${user.discriminator} (${user.id})`)
-    .addField('Modrator:', `${message.author.username}#${message.author.discriminator}`)
-    .addField('Reason', reason);
-  return client.channels.get(modlog.id).sendEmbed(embed);
-};
+    if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("НЕДОСТАТОЧНО ПРАВ!!!");
+    if(args[0] == "help"){
+      message.reply("Usage: !kick <user> <reason>");
+      return;
+    }
+    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!kUser) return errors.cantfindUser(message.channel);
+    let kReason = args.join(" ").slice(22);
+    if(kUser.hasPermission("MANAGE_MESSAGES")) return errors.equalPerms(message, kUser, "MANAGE_MESSAGES");
+
+    let kickEmbed = new Discord.RichEmbed()
+    .setDescription("~Kick~")
+    .setColor("#e56b00")
+    .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
+    .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
+    .addField("Kicked In", message.channel)
+    .addField("Tiime", message.createdAt)
+    .addField("Reason", kReason);
+
+    let kickChannel = message.guild.channels.find(`name`, "incidents");
+    if(!kickChannel) return message.channel.send("Can't find incidents channel.");
+
+    message.guild.member(kUser).kick(kReason);
+    kickChannel.send(kickEmbed);
+}
