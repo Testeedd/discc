@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
-const fs = require("file-system");
+const fs = require("fs");
 const config = require("./config.json");
 
 
