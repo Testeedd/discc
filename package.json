@@ -13,7 +13,7 @@
     "cjs": "0.0.11",
     "discord-akairo": "^7.5.5",
     "discord.js": "^11.4.2",
-    "file-system": "",
+    "fs": "^0.0.1-security",
     "loader.js": "^4.7.0",
     "moment": "^2.23.0",
     "ms": "^2.1.1",
