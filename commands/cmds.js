@@ -12,7 +12,8 @@ user-info - инфо о человеке
 report - пожаловаться на пользователя
 allservers - кол-во серверов использющих меня
 nsfwhelp - помощь по NSFW пикчах
-dice - игральная кость`)
+dice - игральная кость
+server-info - информация о сервере`)
   .setTimestamp()
   .setFooter("|LLIAJIYH-BOT| PROJECTS All rightes reserved.", "https://i.imgur.com/fBv7xWF.jpg")
 message.channel.send({embed}).then(msg => msg.delete(60000));
