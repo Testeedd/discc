@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
-exports.run = (client, message, args, level) => {
+module.exports.run = async (_bot, message, args) => {
 
-    if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("НЕДОСТАТОЧНО ПРАВ!!!");
+    if(!message.member.hasPermission("KICK_MEMBERS")) return errors.noPerms(message, "KICK_MEMBERS");
     if(args[0] == "help"){
       message.reply("Usage: !kick <user> <reason>");
       return;
@@ -19,7 +19,7 @@ exports.run = (client, message, args, level) => {
     .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
     .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
     .addField("Kicked In", message.channel)
-    .addField("Tiime", message.createdAt)
+    .addField("Time", message.createdAt)
     .addField("Reason", kReason);
 
     let kickChannel = message.guild.channels.find(`name`, "incidents");
