@@ -1,8 +1,7 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
-module.exports.run = async (bot, message, args) => {
-
+exports.run = (client, message, args, level) => {
     if(!message.member.hasPermission("KICK_MEMBERS")) return errors.noPerms(message, "KICK_MEMBERS");
     if(args[0] == "help"){
       message.reply("Usage: !kick <user> <reason>");
