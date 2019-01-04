@@ -19,6 +19,7 @@
     "ms": "^2.1.1",
     "nodejs": "8.11.4", 
     "random-puppy": "^1.1.0",
-    "slot-machine": "^2.1.0"
+    "slot-machine": "^2.1.0",
+    "node": "8.11.4"
   }
 }
