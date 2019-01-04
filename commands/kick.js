@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
-module.exports.run = async (bot, message, args) => {
+exports.run = (client, message, args, level) => {
 
     if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("НЕДОСТАТОЧНО ПРАВ!!!");
     if(args[0] == "help"){
