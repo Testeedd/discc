@@ -17,7 +17,7 @@
     "loader.js": "^4.7.0",
     "moment": "^2.23.0",
     "ms": "^2.1.1",
-    "nodejs": "0.0.0", 
+    "nodejs": "^0.0.0", 
     "random-puppy": "^1.1.0",
     "slot-machine": "^2.1.0"
   }
