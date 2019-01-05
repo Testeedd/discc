@@ -6,14 +6,17 @@ const config = require("./config.json");
 
 
 
-fs.readdir("./events/", (err, files) => {
-  if (err) return console.error(err);
+fs.readdir('./events/', (err, files) => {
+  if (err) return console.error;
   files.forEach(file => {
-    let eventFunction = require(`./events/${file}`);
-    let eventName = file.split(".")[0];
-    client.on(eventName, (...args) => eventFunction.run(client, ...args));
+    if (!file.endsWith('.js')) return;
+    const evt = require(`./events/${file}`);
+    let evtName = file.split('.')[0];
+    console.log(`Loaded event '${evtName}'`);
+    client.on(evtName, evt.bind(null, client));
   });
 });
+
 
 
 client.on("message", message => {
@@ -37,7 +40,7 @@ let prefix = config.prefix
 setInterval(function() {
 
 let statuses =[
-`${prefix}help | discord.gg/FUP7mvz`,
+`${prefix}help | bit.ly/LLIAJIYH`,
 `${prefix}help | ${client.users.size} пользователей`,
 `${prefix}help | ${client.guilds.size} сервера`,
 `${prefix}help | vk.com/wolves_xd`,
