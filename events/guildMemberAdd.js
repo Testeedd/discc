@@ -1,8 +1,7 @@
 module.exports = (client, member) => {
 
-    let userLogs = member.guild.channels.find(c => c.name === 'user_logs');
-
-    // anthony#8577
-    userLogs.send(`${member.user.tag} has joined **${member.guild}**!`);
-
+    client.on("guildMemberAdd", (member) => {
+  console.log(`New User "${member.user.username}" has joined "${member.guild.name}"` );
+  member.guild.channels.get("welcome").send(`"${member.user.username}" has joined this server`);
+});
 };
