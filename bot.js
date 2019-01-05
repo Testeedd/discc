@@ -36,14 +36,7 @@ let prefix = config.prefix
 
 setInterval(function() {
 
-let statuses =[fs.readdir("./events/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    let eventFunction = require(`./events/${file}`);
-    let eventName = file.split(".")[0];
-    client.on(eventName, (...args) => eventFunction.run(client, ...args));
-  });
-});
+let statuses =[
 `${prefix}help | bit.ly/LLIAJIYH`,
 `${prefix}help | ${client.users.size} пользователей`,
 `${prefix}help | ${client.guilds.size} сервера`,
