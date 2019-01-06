@@ -38,7 +38,7 @@ client.on('guildMemberAdd', async member => {
         .setFooter(`ID: ${member.id}`)
         .setTimestamp()
     await channel.send(embed)
-})
+});
 
 
 
