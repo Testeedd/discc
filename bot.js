@@ -48,7 +48,7 @@ client.on('guildMemberRemove', async member => {
         .setColor(0xf04747)
         .setFooter(`ID: ${member.id}`)
         .setTimestamp()
-    let channel = member.guild.channels.find(c => c.name == 'actions')
+    let channel = member.guild.channels.find(c => c.name == 'member-log')
     await channel.send(embed)
 });
 
