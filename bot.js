@@ -41,6 +41,16 @@ client.on('guildMemberAdd', async member => {
 });
 
 
+client.on('guildMemberRemove', async member => {
+    let embed = new Discord.RichEmbed()
+        .setAuthor('Участник вышел', member.user.avatarURL)
+        .setDescription(`${member.user.username}#${member.user.discriminator} (${member.id})`)
+        .setColor(0xf04747)
+        .setFooter(`ID: ${member.id}`)
+        .setTimestamp()
+    let channel = member.guild.channels.find(c => c.name == 'actions')
+    await channel.send(embed)
+});
 
 let prefix = config.prefix
 
