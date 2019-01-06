@@ -1,7 +1,7 @@
 
 const Discord = require('discord.js') // подключение discord.js к файлу
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (client, message, args) => {
     let verifilv = ['Отсутствует', 'Низкий', 'Средний', 'Высокий', 'Очень высокий']
     let embed = new Discord.RichEmbed() // встроенное сообщение
         .setAuthor(message.guild.name, message.guild.iconURL) // параметры: имя: string, картинка: string, url: string
