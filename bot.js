@@ -28,7 +28,17 @@ client.on("message", message => {
   }
 });
 
+client.on('guildMemberAdd', async member => {
+    let channel = member.guild.channels.find(c => c.name == 'member-log')
 
+    let embed =  new Discord.RichEmbed()
+        .setAuthor('Участник присоединился', member.user.avatarURL)
+        .setDescription(`${member.user.username}#${member.user.discriminator} (${member})`)
+        .setColor(0x41b581)
+        .setFooter(`ID: ${member.id}`)
+        .setTimestamp()
+    await channel.send(embed)
+})
 
 
 
