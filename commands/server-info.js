@@ -17,5 +17,5 @@ exports.run = (client, message, args) => {
         .setFooter('Сервер создан') // параметры: текст: string, картинка: string
         .setTimestamp(new Date(message.guild.createdTimestamp)) // конверт времени
         .setColor('#4169E1') // цвет
-    await message.channel.send(embed) // отправка в канал
+     message.channel.send(embed) // отправка в канал
 }
