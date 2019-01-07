@@ -18,4 +18,5 @@ exports.run = (client, message, args) => {
         .setTimestamp(new Date(message.guild.createdTimestamp)) // конверт времени
         .setColor('#4169E1') // цвет
      message.channel.send(embed) // отправка в канал
+    .catch( error => message.channel.send(`**ERROR** ${error.message}`));
 }
