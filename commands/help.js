@@ -9,6 +9,7 @@ const embed = new Discord.RichEmbed()
   .addField("__Dev__", `создатель бота`)
   .addField("__cmds__", `все команды`)
   .addField("__invite__", `пригласить бота`)
+  .addField("__somehelp__", `подсказки по боту`)
   .setTimestamp()
   .setFooter("|LLIAJIYH-BOT| PROJECTS All rightes reserved.", "https://i.imgur.com/fBv7xWF.jpg")
 message.channel.send({embed}).then(msg => msg.delete(30000));
