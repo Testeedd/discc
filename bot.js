@@ -52,6 +52,24 @@ client.on('guildMemberRemove', async member => {
     await channel.send(embed)
 });
 
+client.on("message", (message) => {
+  if (message.content.includes("https://")) {
+    console.log("deleted " + message.content + " from " + message.author)
+    message.delete(1);
+    message.channel.sendMessage("No links here, " + message.author)
+  }
+  if (message.content.includes("http://")) {
+    console.log("deleted " + message.content + " from " + message.author)
+    message.delete(1);
+    message.channel.sendMessage("No links here, " + message.author)
+  }
+  if (message.content.includes("www.")) {
+    console.log("deleted " + message.content + " from " + message.author)
+    message.delete(1);
+    message.channel.sendMessage("No links here, " + message.author)
+  }
+  });
+
 let prefix = config.prefix
 
 setInterval(function() {
