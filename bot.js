@@ -79,7 +79,7 @@ let statuses =[
 `${prefix}help | ${client.users.size} пользователей`,
 `${prefix}help | ${client.guilds.size} сервера`,
 `${prefix}help | vk.com/wolves_xd`,
-`создан ШАЛУН#6666`,
+`создан ШАЛУН#2912`,
 `${prefix}help | префикс = ${prefix}`
 ]
 
